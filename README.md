@@ -1,158 +1,486 @@
 ![Logo](admin/fitbit-fitness.png)
-# iobroker.fitbit-fitness
-[![NPM version](https://img.shields.io/npm/v/iobroker.fitbit-fitness.svg)](https://www.npmjs.com/package/iobroker.fitbit-fitness)
-[![Number of Installations (latest)](https://iobroker.live/badges/fitbit-fitness-installed.svg)](https://iobroker.live/badges/fitbit-fitness-installed.svg)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.fitbit-fitness)](https://www.npmjs.com/package/iobroker.fitbit-fitness)
-![Number of Installations (stable)](https://iobroker.live/badges/fitbit-fitness.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/Chris-656/iobroker.fitbit-fitness/badge.svg)](https://app.snyk.io/org/Chris-656/iobroker.fitbit-fitness)
 
-[![NPM](https://nodei.co/npm/iobroker.fitbit-fitness.png?downloads=true)](https://nodei.co/npm/iobroker.fitbit-fitness/)
-## FITBIT adapter for ioBroker
+# ioBroker.fitbit-fitness
 
-Adapter for fitbit devices
-This adapter retrieves fitbit data into iobroker. Ported from @GermanBluefox  from his fitbit-api (great thx) into the new iobroker template structure and added some new features
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Pocky2507/ioBroker.fitbit-fitness?logo=github)](https://github.com/Pocky2507/ioBroker.fitbit-fitness/tarball/main)
+[![ioBroker stable installs](https://img.shields.io/badge/ioBroker-stable%20release-blue?logo=iobroker&logoColor=white)](https://iobroker.live/badges/fitbit-fitness.svg)
+[![ioBroker installs (latest)](https://img.shields.io/badge/ioBroker-latest%20installed-blueviolet?logo=iobroker&logoColor=white)](https://iobroker.live/badges/fitbit-fitness-installed.svg)
+[![GitHub issues](https://img.shields.io/github/issues/Pocky2507/ioBroker.fitbit-fitness?logo=github)](https://github.com/Pocky2507/ioBroker.fitbit-fitness/issues)
+[![Known Vulnerabilities](https://snyk.io/test/github/Pocky2507/ioBroker.fitbit-fitness/badge.svg)](https://app.snyk.io/org/Pocky2507/ioBroker.fitbit-fitness)
 
-## Features
-- Body, Activities, Food, Sleep are retrieved individually
-- Refresh in minutes for continiously retrieving data
-- Sleeping records can be loaded 2 times a day to reduce API calls
+---
 
-## Known Bugs
-- none at the moment
+📖 **Sprachen / Languages:** [Deutsch](#-über-diesen-fork) | [English](#-about-this-fork-english)
 
-## Changelog
-<!--
-    ### **WORK IN PROGRESS**
--->
-### 0.5.0 (2023-11-18)
-- Maintanance issues
+---
 
-### 0.4.14 (2023-11-18)
-- Fixed some minor bugs
+## 🧠 Über diesen Fork
 
-### 0.4.13 (2023-10-31)
-- make heartrate time series working
+Dieser Adapter ist **eine erweiterte und modernisierte Version** des ursprünglichen ioBroker-Fitbit-Adapters von *besterquester*.
+Der Fork von **Pocky2507** enthält zahlreiche neue Funktionen, Stabilitätsverbesserungen und Debug-Optionen,
+um Fitbit-Daten zuverlässiger, detaillierter und in Echtzeit in ioBroker bereitzustellen.
 
-### 0.4.12 (2023-10-03)
-- changed node dependencies to node 16
+**Neue Schwerpunkte dieses Forks:**
+- Erweiterte **Schlafanalyse** mit *SmartSleep*, *EarlySleep* und *Nap-Erkennung*
+- **Intraday-Modus** mit eingestellten Refresh Abruf der Herzfrequenzwerte
+- **Stabilitäts- und Fehler-Filter** zur Datenvalidierung
+- Überarbeitete **Admin-Oberfläche** mit Debug- und Entwickler-Tab
+- Verbesserte **Token-Verwaltung** (automatischer Refresh, Introspect-Prüfung)
 
-### 0.4.11 (2023-09-26)
-- Catch unpresent activity data
+> 💡 Ziel dieses Forks ist es, Fitbit-Daten nicht nur periodisch,
+> sondern *intelligent und kontextbasiert* zu analysieren — insbesondere Schlaf- und Herzfrequenzmuster in Echtzeit.
 
-### 0.4.10 (2023-02-17)
-- fixed web page for token
+---
 
-### 0.4.9 (2023-02-14)
-- Changed Repo name
+> ⚠️ **Wichtiger Installationshinweis**
+> Bitte installiere diesen Adapter **direkt von GitHub**, um korrekte Updates zu erhalten:
+>
+> Dieser Adapter muss neu installliert werden falls der alte Adapter von Chris-656 schon installiert ist
+> ```
+> iobroker del fitbit-fitness
+> ```
+> Um diesen Fork zu installieren nutze dafür genau diesen Befehl!
+>
+> ```
+> iobroker url "https://github.com/Pocky2507/ioBroker.fitbit-fitness/tarball/main"
+> ```
+>
+> **Nicht** über npm installieren – dies ist ein geschützter *nonNpm*-Build.
 
-### 0.4.8 (2022-10-09)
-- added lowBatteryAlarm
-- fixed body records undefined
+---
 
-### 0.4.7 (2022-09-20)
-- Added Devices request and battery status
+## 🩺 ioBroker Fitbit Adapter (v1.1.0)
 
-### 0.4.6 (2022-08-01)
-- Changed the schedule variance also to 2 hours
+Dieser Adapter ruft **Fitbit-Daten** in ioBroker ab und stellt sie als strukturierte Datenpunkte bereit.
+Er basiert auf dem ursprünglichen Projekt von **@GermanBluefox** (*fitbit-api*)
+und wurde von **Chris-656** und **Pocky2507** umfassend erweitert und modernisiert.
 
-### 0.4.5 (2022-06-16)
- - bumping version 0.4.5
+---
 
-### 0.4.4 (2022-06-16)
-- fixed minor issues with versions and testing
+## 🧩 Voraussetzungen
 
-### 0.4.3 (2022-06-14)
-- fixed lower case iobroker
-- moved axios to normal dependency
-- changed node.schedule to random schedule with an hour
-- prepared for syncing history data will come in the next versions server request to fitbit is pending.
+Um den Adapter zu verwenden, benötigst du einen **Fitbit Developer Account**.
 
-### 0.4.0 (2022-06-09)
-- fixed lower case iobroker
-- moved axios to normal dependency
-- changed node.schedule to random schedule with an hour
-- prepared for syncing history data will come in the next versions
+1. Besuche [https://dev.fitbit.com/apps/new](https://dev.fitbit.com/apps/new)
+2. Melde dich mit deinem **normalen Fitbit-Konto** an.
+3. Erstelle eine **neue App**:
+   - Beliebiger Name (z. B. *ioBroker Fitbit Adapter*)
+   - **Redirect URL:**
+     `https://pocky2507.github.io/ioBroker.fitbit-fitness/getCode.html`
+   - Berechtigungen aktivieren: *activity, heartrate, nutrition, profile, settings, sleep, weight*
+4. Nach dem Speichern findest du:
+   - **Client ID**
+   - **Client Secret**
+5. Trage diese Werte in den Adaptereinstellungen im ioBroker ein.
 
-### 0.3.10 (2022-04-16)
-- added Resting Heartrate
+💡 Ohne gültige Client-ID und Secret ist keine Verbindung zu Fitbit möglich.
 
-### 0.3.9 (2022-04-16)
-- added ActiveMinutes
-- added Floors (activities)
+---
 
-### 0.3.8 (2022-04-09)
-- corrected the auth method of the redirection
+## ✨ Neue Funktionen in Version 1.1.0
 
-### 0.3.7 (2022-03-24)
-- changed the auth method. Tested also with Chrome
+- Vorbereitung für persönliche KI Analyse über History
+- Intelligenter Vorfilter für Filmabende, Lesen, Fernsehen
+- Verwendet den HF-Abfall (vor/nach dem Schlafen), um echten Schlaf zu erkennen
+- Erfordert Herzfrequenzabfall ≥ 2,5 BPM + stabile Phase (Standard 20 Min.)
+- Respektiert die IgnoreEarlyMainSleep-Grenze
+- Legt die Zustände HRDropAtSleep, HRBeforeSleep und HRAfterSleep fest
+- Vollständig abwärtskompatibel – keine Breaking Changes
+- Schichtarbeit unterstützt
+- Keine Fehlalarme durch abendliche Entspannung
+- Nickerchen werden auf Dauer und Herzfrequenz-Aktivität geprüft
+- Optionale Korrektur für zu früh erkannte Aufwachzeiten hinzugefügt (konfigurierbarer Minutenpuffer)
+- Code komplett aufgeräumt, sortiert und neu Verschachtelt
+- Nochmaliges Feintuning der Schlaflogik.
+- Fertig für Finale Version auf 1.0.0
+- Neue Option **Schlaf-Stabilität (Minuten)** zur Definition, wie lange ein Schlaf stabil sein muss, bevor er als Hauptschlaf zählt
+- Standardwert: **20 Minuten**
+- **Debug-Ausgabe** wird jetzt nur noch **einmalig beim Adapterstart** angezeigt
+- Verbesserte Struktur und Darstellung des **Debug-Tabs**
+- Interne Optimierungen für Konfigurations- und Logverhalten
+- Rückwärtskompatibel zu v0.5.7
 
-### 0.3.1 (2022-03-24)
-- changed the auth method. resolved the bug with iframe. Now also chrome is working
+---
 
-### 0.3.0 (2022-03-22)
-- changed logging -> debug for detailed logging
-- bug fixes
+## ⚙️ Hauptfunktionen
 
-### 0.2.5 (2022-02-20)
-- add possibility to read sleep records only in the morning and evening to reduce traffic
+- **History** über 90 Tage wird für persönliche Schlafauswertungen heran gezogen
+- Liest Daten aus **Körper**, **Aktivitäten**, **Ernährung**, **Schlaf** und **Geräten**
+- Frei wählbares **Abrufintervall**
+- **Intraday-Modus** mit eingestellten Refresh Abruf der Herzfrequenzwerte
+- **Nickerchen-Verwaltung** (erstes/letztes Nickerchen, automatisches Leeren)
+- **Kombinierter EarlySleep & SmartSleep-Filter** mit Echtzeitprüfung
+- **Schlaf-Stabilitäts-Option** für präzisere Nachtschlaf-Erkennung
+- **Debug-Modus** schaltbar im Admin-Panel
+- Unterstützt **Compact-Mode** und **Cloud-Verbindung**
 
-### 0.2.4 (2022-02-17)
-- changed the auth method (ported from @GermanBluefox fitbit-api)
-- added a debug option to reduce the logs
-- some minor changes
+---
 
-### 0.2.3 (2022-02-15)
-- added Food: Carbs, Fiber, Sodium
-- fixed Water recording
+## 💤 Schlafdatenverarbeitung
 
-### 0.2.2 (2022-02-14)
-- Bug fixes
+Fitbit berechnet Schlafphasen **mehrere Stunden nach dem Aufstehen**.
+Die Daten sind am **Abend (20–22 Uhr)** am vollständigsten.
 
-### 0.2.1 (2022-02-14)
-- Minor fixes
+| Modus | Beschreibung | Empfehlung |
+|:------|:--------------|:------------|
+| **Regelmäßig** | Abruf bei jedem Intervall | Für unregelmäßigen Schlafrhythmus |
+| **Einmal täglich (20–22 Uhr)** | Abruf nur abends | Für gleichmäßigen Schlaf & weniger API-Aufrufe |
 
-### 0.2.0 (2022-02-14)
-- renamed repo to fitbit-fitness
+💡 Wenn du morgens sofort Daten brauchst, deaktiviere *„Schlafaufzeichnung nur einmal täglich“*.
 
-### 0.1.3 (2022-02-07)
-- Add: Loggings adapted
-- Fix: Changes Refresh Time to minutes
+---
 
-### 0.1.2 (2022-02-03)
-- added Activity Records
-- Fixed refresh rate
+## 🌙 Kombinierter Frühschlaf- & SmartSleep-Filter (Echtzeit)
 
-### 0.1.1 (2022-02-02)
-- Minor Fixes
+Fitbit erkennt manchmal fälschlich frühe Ruhephasen als Hauptschlaf.
+Der kombinierte Filter verbindet:
 
-### 0.1.0 (2022-01-30)
-- Initial version
-- ported parts from projekt @GermanBluefox fitbit-api [GermanBluefox](https://github.com/GermanBluefox)
-- [ iobroker-community-adapters/iobroker.fitbit-fitness-api ](https://github.com/iobroker-community-adapters/iobroker.fitbit-fitness-api)
-- and adpated and enhanced
-- used the new createadapter script to be on the newest adapter standard
-- reduced the parallel reading since the web page blocks after some time
-- included food and sleep records to be retrieved
+1. eine **Echtzeit-Prüfung** der aktuellen Uhrzeit und
+2. eine **intelligente SmartSleep-Analyse** der Schlafdauer.
 
-## License
-Copyright (c) 2023 Chris <besterquester@live.at>
+| Einstellung | Beschreibung |
+|:-------------|:--------------|
+| **Frühschlaf ignorieren** | Aktiviert den Uhrzeit-Filter. Schlafphasen, die **vor der Grenze** beginnen, werden geprüft. |
+| **Uhrzeitgrenze (HH:MM)** | Standard: 22:30 oder 23:00 Uhr |
+| **SmartSleep aktivieren** | Akzeptiert lange Schlafphasen auch vor der Grenze. |
+| **Mindestdauer (h)** | z. B. 3 → Schlafphasen über 3 h gelten als Hauptschlaf. |
+
+💡 **Beispiele:**
+- Start 21:00 → Dauer 1 h → **ignoriert**
+- Start 21:15 → Dauer 6 h → **akzeptiert** (SmartSleep)
+- Aktuelle Zeit 20:30 < Grenze 23:00 → **Nachtschlaf-Analyse übersprungen**
+
+---
+
+## 🕒 Nickerchen-Optionen
+
+| Einstellung | Beschreibung |
+|:-------------|:--------------|
+| **Letztes oder erstes Nickerchen anzeigen** | true = letztes, false = erstes |
+| **Nachts automatisch leeren** | Löscht Liste nach Mitternacht |
+| **Tägliches Leeren aktivieren** | Leert Liste einmal pro Tag |
+| **Leerungszeit (HH:MM)** | Uhrzeit für erzwungenes Leeren (z. B. 02:45) |
+
+---
+
+## ⚙️ Standardkonfiguration (Default Settings)
+
+| Schlüssel | Standardwert | Kurzbeschreibung |
+|:-----------|:-------------|:------------------|
+| `refresh` | 5 Minuten | Intervall für den Datenabruf |
+| `intraday` | ✅ | Aktiviert Herzfrequenzwerte mit eingestelltem Refresh Intervall |
+| `ignoreEarlyMainSleepEnabled` | ✅ | Ignoriert Hauptschlafphasen vor der Uhrzeitgrenze |
+| `ignoreEarlyMainSleepTime` | 23:00 | Beginn des Nachtschlaf-Fensters |
+| `smartEarlySleepEnabled` | ✅ | Erkennt lange Schlafphasen automatisch |
+| `minMainSleepHours` | 3 | Mindestdauer für SmartSleep |
+| `sleepStabilityMinutes` | 20 | Dauer für stabile Schlafphase (Minuten) |
+| `sleepLateWakeCorrectionMinutes` | 0 | Optionale Korrektur für zu früh erkannte Aufwachzeiten (Minuten) |
+| `smartNapValidationEnabled` | ❌ | (Optional) Nickerchen werden auf Dauer und Herzfrequenz-Aktivität geprüft |
+| `showLastOrFirstNap` | ✅ | Zeigt letztes (true) oder erstes (false) Nickerchen |
+| `clearNapListAtNight` | ✅ | Leert Nickerchenliste nach Mitternacht |
+| `enableDailyNapClear` | ❌ | Aktiviert tägliches Leeren |
+| `forceClearNapListTime` | 02:45 | Uhrzeit für Zwangsleerung |
+| `kiEnabled` | ❌ | KI  Aktivierung |
+| `kiMode` | ❌ | KI Modus |
+| `debugEnabled` | ❌ | Aktiviert detaillierte Debug-Ausgabe |
+
+---
+
+## 🧾 Changelog
+
+## **1.1.0 (2025-12-02)**
+- Intelligente KI implementiert, aber noch nicht Aktiviert
+
+## **1.0.3 (2025-11-13)**
+- Intelligenter Vorfilter für Filmabende, Lesen, Fernsehen
+- Verwendet den HF-Abfall (vor/nach dem Schlafen), um echten Schlaf zu erkennen
+- Erfordert Herzfrequenzabfall ≥ 2,5 BPM + stabile Phase (Standard 20 Min.)
+- Respektiert die IgnoreEarlyMainSleep-Grenze
+- Legt die Zustände HRDropAtSleep, HRBeforeSleep und HRAfterSleep fest
+- Vollständig abwärtskompatibel – keine Breaking Changes
+- Schichtarbeit unterstützt
+- Keine Fehlalarme durch abendliche Entspannung
+
+## **1.0.2 (2025-11-12)**
+- Nickerchen werden auf Dauer und Herzfrequenz-Aktivität geprüft, um Fehlinterpretationen (z. B. Lesen oder Ruhen) auszuschließen
+
+## **1.0.1 (2025-11-10)**
+- Optionale Korrektur für zu früh erkannte Aufwachzeiten hinzugefügt (konfigurierbarer Minutenpuffer)
+
+## **1.0.0 (2025-11-08)**
+- Code komplett aufgeräumt, sortiert und neu Verschachtelt
+- Nochmaliges Feintuning der Schlaflogik.
+- Fertig für Finale Version auf 1.0.0
+
+## **0.5.7 (2025-11-05)**
+- Feintuning der "Sofazeiten"
+
+## **0.5.6 (2025-10-30)**
+- Neue Einstellung **Schlaf-Stabilität (Minuten)** hinzugefügt
+- Standardwert 20 Minuten
+- Debug-Ausgabe nur noch einmalig beim Adapterstart
+- Verbesserte Darstellung im Debug-Tab
+- Optimierungen der Konfiguration und internen Logik
+
+## **0.5.5 (2025-10-28)**
+- Kombinierter **Echtzeit-Frühschlaf- & SmartSleep-Filter**
+- Lange Hauptschlafphasen vor der Grenze werden akzeptiert
+- Verbesserte Debug-Ausgabe und Stabilität
+- Erweiterte Nap-Summen und Gesamtschlaf-Datenpunkte
+
+## **0.5.4 (2025-10-27)**
+- Neuer **Debug- & Erweiterte-Optionen-Tab**
+- SmartSleep-Erkennung (Mindestdauer z. B. 3 h)
+- Mehrsprachige UI-Anpassungen
+
+---
+
+## 👨‍💻 Autoren
+
+- **Chris-656** (<besterquester@live.at>) – ursprünglicher Entwickler
+- **Pocky2507** (<pocky@united-websites.org>) – Fork & Erweiterungen (SmartSleep, Frühschlaf, Nickerchen, Intraday, Realtime, Debug, Sleep Stability)
+
+---
+
+## 📜 Lizenz
 
 MIT License
+© 2025 Chris-656 & Pocky2507
+Software wird „wie besehen“ bereitgestellt, ohne Garantie.
+Verwendung auf eigene Verantwortung.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+---
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## 🇬🇧 English Version
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+---
+
+## 🧠 About this fork (English)
+
+This adapter is an **enhanced and modernized version** of the original ioBroker Fitbit adapter by *besterquester*.
+The **Pocky2507** fork introduces new features, improved stability, and advanced debug options
+to deliver Fitbit data more reliably, accurately, and in real-time within ioBroker.
+
+**Key improvements in this fork:**
+- Advanced **sleep analysis** with *SmartSleep*, *EarlySleep*, and *nap detection*
+- **Intraday mode** with set refresh retrieval of heart rate values
+- **Stability filters** and smarter error handling
+- Reworked **Admin UI** with Debug & Developer tabs
+- Improved **OAuth2 handling** with automatic refresh and introspection
+
+> 💡 The goal of this fork is to analyze Fitbit data *intelligently and context-aware*,
+> focusing on real-time sleep and heart-rate patterns.
+
+---
+
+## 🧾 Installation Note
+
+> ⚠️ **Important:**
+> Install this adapter **only from GitHub** to ensure the correct version and updates.
+>
+> This adapter must be reinstalled if the old adapter from Chris-656 is already installed
+> ```
+> iobroker del fitbit-fitness
+> ```
+> Use this exact command for that!
+>
+> ```
+> iobroker url "https://github.com/Pocky2507/ioBroker.fitbit-fitness/tarball/main"
+> ```
+>
+> Do **not** install from npm – this is a protected nonNpm build.
+
+---
+
+## 🩺 Fitbit Adapter for ioBroker (v1.1.0)
+
+This adapter retrieves **Fitbit data** into ioBroker and provides structured datapoints.
+Based on the original **fitbit-api** by *@GermanBluefox*,
+extended and modernized by **Chris-656** and **Pocky2507**.
+
+---
+
+## 🧩 Requirements
+
+To use this adapter, you need a **Fitbit Developer Account**.
+
+1. Visit [https://dev.fitbit.com/apps/new](https://dev.fitbit.com/apps/new)
+2. Log in with your **regular Fitbit account**
+3. Create a **new app**:
+   - Any name (e.g. *ioBroker Fitbit Adapter*)
+   - **Redirect URL:** `https://pocky2507.github.io/ioBroker.fitbit-fitness/getCode.html`
+   - Enable permissions: *activity, heartrate, nutrition, profile, settings, sleep, weight*
+4. Copy the **Client ID** and **Client Secret** after saving.
+5. Enter both in the adapter configuration within ioBroker.
+
+💡 Without a valid Client ID and Secret, no Fitbit connection is possible.
+
+---
+
+## ✨ New in Version 1.1.0
+- Preparation for personal AI analysis via history
+- Smart pre-filter for movie nights, reading, TV
+- Uses HR drop (before/after sleep) to detect real sleep
+- Requires HR drop ≥ 2.5 BPM + stable phase (default 20 min)
+- Respects ignoreEarlyMainSleep cutoff
+- Sets HRDropAtSleep, HRBeforeSleep, HRAfterSleep states
+- Fully backward compatible – no breaking changes
+- Shift work supported
+- No false positives from evening relaxation
+- Naps are checked for duration and heart-rate activity to exclude false naps (like resting or reading)
+- Added configurable late wake correction (optional time buffer for too-early wake detection)
+- Code completely cleaned up, sorted and re-nested
+- Further fine-tuning of the sleep logic
+- Ready for final version to 1.0.0
+- Added **Sleep Stability (Minutes)** option for main sleep detection
+- Default set to **20 minutes**
+- Debug output now shown **once on startup only**
+- Improved layout and structure of the **Debug tab**
+- Internal optimizations for configuration and logging
+- Backward compatible with v0.5.6
+
+---
+
+## ⚙️ Main Features
+
+- **History** over 90 days is used for personal sleep evaluations
+- Retrieves **body**, **activity**, **nutrition**, **sleep**, and **device** data
+- Adjustable **refresh interval**
+- **Intraday mode** with set refresh retrieval of heart rate values
+- **Nap management** (first / last nap, auto-clear)
+- **Combined EarlySleep & SmartSleep filter** with real-time clock check
+- **Sleep Stability** for improved main-sleep accuracy
+- **Debug mode** toggle in Admin UI
+- Supports **compact mode** and **cloud connection**
+
+---
+
+## 💤 Sleep Data Processing
+
+Fitbit finalizes sleep data a few hours after wake-up.
+The most complete data is available in the **evening (8–10 PM)**.
+
+| Mode | Description | Recommended for |
+|:------|:-------------|:----------------|
+| **Regular** | Fetch sleep data on every interval | Irregular sleep patterns |
+| **Once daily (8–10 PM)** | Fetch only in the evening | Regular schedules & API efficiency |
+
+💡 If you need instant morning data, disable *“Fetch sleep once per day”*.
+
+---
+
+## 🌙 Combined EarlySleep & SmartSleep Filter (Realtime)
+
+Fitbit sometimes marks early evening rest as night sleep.
+This logic combines **time-based filtering** and **SmartSleep duration analysis**.
+
+| Setting | Description |
+|:----------|:-------------|
+| **Ignore early main sleep** | Activates time-based filter for blocks before cutoff time. |
+| **Cutoff time (HH:MM)** | Default: 22:30 or 23:00 |
+| **Enable SmartSleep detection** | Accepts long blocks even if before cutoff. |
+| **Minimum duration (hours)** | e.g. 3 → main sleeps > 3 h accepted, shorter ignored. |
+
+💡 **Examples:**
+- Start 21:00 → 1 h → **ignored**
+- Start 21:15 → 6 h → **accepted (SmartSleep)**
+- Current time 20:30 < cutoff 23:00 → **analysis skipped**
+
+---
+
+## 🕒 Nap Options
+
+| Setting | Description |
+|:----------|:-------------|
+| **Show last or first nap** | true = last, false = first |
+| **Clear naps at night** | Clears list after midnight |
+| **Enable daily nap clearing** | Clears once per day |
+| **Forced clearing time (HH:MM)** | e.g. 02:45 AM |
+
+---
+
+## ⚙️ Default Configuration
+
+| Key | Default | Short Description |
+|:------|:----------|:------------------|
+| `refresh` | 5 min | Interval in which Fitbit data is fetched |
+| `intraday` | ✅ | Enables Intraday mode with Refresh Intervall heart-rate values |
+| `ignoreEarlyMainSleepEnabled` | ✅ | Ignores main sleeps starting before cutoff |
+| `ignoreEarlyMainSleepTime` | 23:00 | Defines night sleep window |
+| `smartEarlySleepEnabled` | ✅ | Accepts long sleeps before cutoff |
+| `minMainSleepHours` | 3 | Minimum main sleep duration (hours) |
+| `sleepStabilityMinutes` | 20 | Minutes required for stable sleep |
+| `sleepLateWakeCorrectionMinutes` | 0 | optional configurable late wake correction (Minutes) |
+| `smartNapValidationEnabled` | ❌ | (Optional) Naps are checked for duration and heart-rate activity to exclude false naps |
+| `showLastOrFirstNap` | ✅ | Show last (true) or first (false) nap |
+| `clearNapListAtNight` | ✅ | Clears nap list after midnight |
+| `enableDailyNapClear` | ❌ | Enables additional daily clearing |
+| `forceClearNapListTime` | 02:45 | Fixed time for forced clearing |
+| `kiEnabled` | ❌ | KI  Activation |
+| `kiMode` | ❌ | KI Mode |
+| `debugEnabled` | ❌ | Enables detailed debug output |
+
+---
+
+## 🧾 Changelog
+
+## **1.1.0 (2025-12-02)**
+- Intelligent AI implemented but not activated yet
+
+## **1.0.3 (2025-11-11)**
+- Smart pre-filter for movie nights, reading, TV
+- Uses HR drop (before/after sleep) to detect real sleep
+- Requires HR drop ≥ 2.5 BPM + stable phase (default 20 min)
+- Respects ignoreEarlyMainSleep cutoff
+- Sets HRDropAtSleep, HRBeforeSleep, HRAfterSleep states
+- Fully backward compatible – no breaking changes
+- Shift work supported
+- No false positives from evening relaxation
+
+## **1.0.2 (2025-11-11)**
+- Naps are checked for duration and heart-rate activity to exclude false naps (like resting or reading)
+
+## **1.0.1 (2025-11-10)**
+- Added optional correction for wake-up times detected too early (configurable minute buffer)
+
+## **1.0.0 (2025-11-08)**
+- Code completely cleaned up, sorted and re-nested.
+- Further fine-tuning of the sleep logic.
+- Ready for final version to 1.0.0
+
+## **0.5.7 (2025-11-05)**
+- Fine-tuning the "Couchtimes"
+
+## **0.5.6 (2025-10-30)**
+- Added **Sleep Stability (Minutes)** configuration
+- Default value 20 minutes
+- Debug output only once on startup
+- Improved Admin UI for Debug tab
+- Configuration and logging optimized
+
+## **0.5.5 (2025-10-28)**
+- Added **combined real-time EarlySleep & SmartSleep filter**
+- Long main sleeps before cutoff are now accepted
+- Improved debug output and stability
+- Added total sleep and nap summaries
+
+## **0.5.4 (2025-10-27)**
+- Added **Debug & Advanced Options Tab**
+- SmartSleep detection with minimum duration setting
+- UI and translation improvements
+
+---
+
+## 👨‍💻 Authors
+
+- **Chris-656** (<besterquester@live.at>) – original developer
+- **Pocky2507** (<pocky@united-websites.org>) – extensions (SmartSleep, EarlySleep, Realtime, Debug, Naps, Intraday, Sleep Stability)
+
+---
+
+## 📜 License
+
+MIT License
+© 2025 Chris-656 & Pocky2507
+Software provided *as is*, without warranty.
+Use at your own risk.
