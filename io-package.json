@@ -1,98 +1,90 @@
 {
   "common": {
     "name": "fitbit-fitness",
-    "version": "0.5.0",
+    "version": "1.1.0",
+    "nonNpm": false,
+    "installedFrom": "https://github.com/Pocky2507/ioBroker.fitbit-fitness/tarball/main",
+    "desc": {
+      "en": "Fork of the original ioBroker Fitbit adapter by Chris (besterquester). Extended and maintained by Pocky2507 — includes advanced sleep detection, nap handling, stability threshold, and heart-rate zone metrics. Retrieves Fitbit health, activity and sleep data with nap and early-sleep filtering.",
+      "de": "Fork des ursprünglichen ioBroker Fitbit-Adapters von Chris (besterquester). Erweiterung und Pflege durch Pocky2507 – enthält erweiterte Schlaferkennung, Nickerchen-Verarbeitung, Stabilitätsschwelle und Herzfrequenzzonen. Ruft Fitbit-Gesundheits-, Aktivitäts- und Schlafdaten ab (mit Nickerchen- und Frühschlaf-Filter)."
+    },
+    "authors": [
+      "Chris-656 <besterquester@live.at> (original author)",
+      "Pocky2507 <pocky@united-websites.org> (fork and maintenance)"
+    ],
+    "forkOf": "iobroker-community-adapters/ioBroker.fitbit-fitness",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Pocky2507/ioBroker.fitbit-fitness"
+    },
     "news": {
+      "1.1.0": {
+        "en": "Preparation for personal AI analysis via history",
+        "de": "Vorbereitung für persönliche KI Analyse über History."
+      },
+      "1.0.3": {
+        "en": "Smart pre-filter for movie nights, reading, TV",
+        "de": "Intelligenter Vorfilter für Filmabende, Lesen, Fernsehen."
+      },
+      "1.0.2": {
+        "en": "Naps are checked for duration and heart-rate activity to exclude false naps (like resting or reading)",
+        "de": "Nickerchen werden auf Dauer und Herzfrequenzaktivität überprüft, um falsche Nickerchen (z. B. Ruhen oder Lesen) auszuschließen."
+      },
+      "1.0.0": {
+        "en": "Code completely cleaned up, sorted and re-nested, further fine-tuning of the sleep logic, ready for final version to 1.0.0",
+        "de": "Code komplett aufgeräumt, sortiert und neu verschachtelt, nochmaliges Feintuning der Schlaflogik, fertig für finale Version 1.0.0"
+      },
+      "0.5.6": {
+        "en": "Added configurable sleep stability threshold (default 20 min) to fine-tune refined sleep phase detection.",
+        "de": "Konfigurierbare Stabilitätsschwelle für Schlaf (Standard 20 Min) hinzugefügt, um die verfeinerte Schlafphasenerkennung zu optimieren."
+      },
+      "0.5.5": {
+        "en": "Added combined EarlySleep & SmartSleep filter: long main-sleep blocks before cutoff time are now accepted; improved      debug output and sleep logic stability.",
+        "de": "Neuer kombinierter Frühschlaf- & SmartSleep-Filter: Lange Hauptschlafphasen vor der Uhrzeitgrenze werden jetzt akzeptiert; verbesserte Debug-Ausgabe und stabilere Schlaflogik."
+      },
+      "0.5.4": {
+        "en": "Added Debug & Advanced Options tab with toggles for debug output, smart early-sleep detection and minimum main sleep threshold.",
+        "de": "Neuer Tab \"Debug & Erweiterte Optionen\" mit Schaltern für Debug-Ausgabe, intelligente Frühschlaf-Erkennung und Mindest-Schlafdauer hinzugefügt."
+      },
+      "0.5.3": {
+        "en": "Added configurable early-sleep filter (e.g. ignore before 23:00), nap options, and intraday mode. Improved sleep logic.",
+        "de": "Konfigurierbarer Frühschlaf-Filter (z. B. Ignorieren vor 23:00), Nickerchen-Optionen und Intraday-Modus hinzugefügt. Schlaflogik verbessert."
+      },
+      "0.5.2": {
+        "en": "Added nap options and intraday mode; improved sleep logic",
+        "de": "Nickerchen-Optionen und Intraday-Modus hinzugefügt; Schlaflogik verbessert"
+      },
+      "0.5.1": {
+        "en": "Maintenance update",
+        "de": "Wartungsupdate"
+      },
       "0.5.0": {
-        "en": "Maintanance issues",
-        "de": "Wichtigste behandelte Fragen",
-        "ru": "Вопросы континента",
-        "pt": "Questões de manutenção",
-        "nl": "Maintanance problemen",
-        "fr": "Maintanance issues",
-        "it": "Questioni principali",
-        "es": "Cuestiones de mantenimiento",
-        "pl": "Zagadnienia administracyjne",
-        "uk": "Основні проблеми",
-        "zh-cn": "主要问题"
+        "en": "Maintenance issues",
+        "de": "Wichtigste behandelte Fragen"
       },
       "0.4.14": {
         "en": "Fixed some minor bugs",
-        "de": "Einige kleinere Fehler behoben",
-        "ru": "Исправлены некоторые незначительные ошибки",
-        "pt": "Corrigido alguns bugs menores",
-        "nl": "_",
-        "fr": "Correction de quelques insectes mineurs",
-        "it": "Risolto alcuni bug minori",
-        "es": "Arreglado algunos errores menores",
-        "pl": "Fixed Some Minor bugs (ang.)",
-        "uk": "Виправлено деякі незначні помилки",
-        "zh-cn": "偷窃某些小偷窃者"
+        "de": "Einige kleinere Fehler behoben"
       },
       "0.4.13": {
         "en": "make heartrate time series working",
-        "de": "herzhafte zeitreihen arbeiten",
-        "ru": "сделать серию сердечных времен работая",
-        "pt": "fazer séries de tempo de ritmo cardíaco trabalhando",
-        "nl": "maak hartslagtijdserieën die werken",
-        "fr": "faire fonctionner les séries temporelles",
-        "it": "rendere cardiovascolare tempo serie di lavoro",
-        "es": "hacer el trabajo de la serie de tiempo",
-        "pl": "czas pracy",
-        "uk": "змусити роботу сердечника серця",
-        "zh-cn": "工作时间系列"
+        "de": "Herzfrequenz-Zeitreihen funktionieren jetzt"
       },
       "0.4.12": {
         "en": "changed node dependencies to node 16",
-        "de": "geänderte knotenabhängigkeiten zum knoten 16",
-        "ru": "изменены зависимости от узлов до ноды 16",
-        "pt": "dependências de nó alteradas para o nó 16",
-        "nl": "veranderde node afhankelijkheid om 16",
-        "fr": "changement de dépendances de noeud à node 16",
-        "it": "cambiato nodo dipendenze in nodo 16",
-        "es": "cambios en las dependencias de los nodos",
-        "pl": "zmiany węzłów zależą od węzła 16",
-        "uk": "змінені залежності вершини до вершини 16",
-        "zh-cn": "第16条"
+        "de": "Knotenabhängigkeiten auf Node 16 geändert"
       },
       "0.4.11": {
         "en": "Catch unpresent activity data",
-        "de": "Nicht vorhandene Aktivitätsdaten erfassen",
-        "ru": "Поймать непредвиденные данные о деятельности",
-        "pt": "Pegar dados de atividade não presentes",
-        "nl": "Vang onvoorspelbare activiteiten",
-        "fr": "Catch unpresent activity data",
-        "it": "Cattura i dati delle attività non presenti",
-        "es": "Buscar datos de actividad no presentes",
-        "pl": "Catch unprezentuje dane",
-        "uk": "Кетч непредставлені дані активності",
-        "zh-cn": "未代表的活动数据"
+        "de": "Nicht vorhandene Aktivitätsdaten abfangen"
       },
       "0.4.10": {
         "en": "fixed web page for token",
-        "de": "feste webseite für token",
-        "ru": "фиксированная веб-страница для токена",
-        "pt": "página web fixa para token",
-        "nl": "vertaling:",
-        "fr": "page web fixe pour jeton",
-        "it": "pagina web fissa per token",
-        "es": "página web fija para ficha",
-        "pl": "oficjalna strona internetowa",
-        "uk": "фіксована сторінка для токен",
-        "zh-cn": "固定网页"
+        "de": "Webseite für Token repariert"
       },
       "0.4.9": {
         "en": "Changed Repo name",
-        "de": "Repo Name geändert",
-        "ru": "Изменено имя Repo",
-        "pt": "Nome de Repo alterado",
-        "nl": "Veranderde naam van Repo",
-        "fr": "Changement de nom Repo",
-        "it": "Cambiato nome Repo",
-        "es": "Cambio de nombre Repo",
-        "pl": "Nazwisko Repo",
-        "uk": "Змінено назву Repo",
-        "zh-cn": "B. 改变Repo名称"
+        "de": "Repo-Name geändert"
       }
     },
     "titleLang": {
@@ -108,34 +100,14 @@
       "uk": "fitbit-fitness",
       "zh-cn": "fitbit-fitness"
     },
-    "desc": {
-      "en": "retrieves data from FITBIT",
-      "de": "daten von FITBIT abruft",
-      "ru": "извлекает данные из FITBIT",
-      "pt": "recupera dados de FITBIT",
-      "nl": "haal gegevens van FITBIT",
-      "fr": "récupère les données de FITBIT",
-      "it": "recupera i dati da FITBIT",
-      "es": "recupera datos de FITBIT",
-      "pl": "dane z FITB",
-      "uk": "отримувати дані з FITBIT",
-      "zh-cn": "fITBIT 数据检索"
-    },
-    "authors": [
-      "Chris <besterquester@live.at>"
-    ],
-    "keywords": [
-      "Fitbit",
-      "Heath",
-      "Fitness"
-    ],
+    "keywords": ["Fitbit", "Health", "Fitness", "Sleep", "ioBroker"],
     "license": "MIT",
     "platform": "Javascript/Node.js",
     "main": "main.js",
     "icon": "fitbit-fitness.png",
     "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/Chris-656/ioBroker.fitbit-fitness/main/admin/fitbit-fitness.png",
-    "readme": "https://github.com/Chris-656/ioBroker.fitbit-fitness/blob/main/README.md",
+    "extIcon": "https://raw.githubusercontent.com/Pocky2507/ioBroker.fitbit-fitness/main/admin/fitbit-fitness.png",
+    "readme": "https://github.com/Pocky2507/ioBroker.fitbit-fitness/blob/main/README.md",
     "loglevel": "info",
     "mode": "daemon",
     "type": "health",
@@ -157,18 +129,34 @@
     "bodyrecords": false,
     "activityrecords": false,
     "sleeprecords": false,
-    "sleeprecordsschedule": true,
+    "sleeprecordsschedule": false,
     "foodrecords": false,
-    "devicerecords": false
+    "devicerecords": true,
+    "intraday": true,
+    "showLastOrFirstNap": true,
+    "clearNapListAtNight": true,
+    "enableDailyNapClear": false,
+    "forceClearNapListTime": "02:45",
+    "smartNapValidationEnabled": false,
+    "ignoreEarlyMainSleepEnabled": true,
+    "ignoreEarlyMainSleepTime": "23:00",
+    "clientId": "",
+    "clientSecret": "",
+    "redirectUri": "https://pocky2507.github.io/ioBroker.fitbit-fitness/getCode.html",
+    "debugEnabled": false,
+    "smartEarlySleepEnabled": true,
+    "minMainSleepHours": 3,
+    "sleepStabilityMinutes": 20,
+    "sleepLateWakeCorrectionMinutes": 0,
+    "kiEnabled": false,
+    "kiMode": "disabled"
   },
   "objects": [],
   "instanceObjects": [
     {
       "_id": "info",
       "type": "channel",
-      "common": {
-        "name": "Information"
-      },
+      "common": { "name": "Information" },
       "native": {}
     },
     {
@@ -179,7 +167,7 @@
         "name": "Device or service connected",
         "type": "boolean",
         "read": true,
-        "write": false,
+        "write": true,
         "def": false
       },
       "native": {}
@@ -187,9 +175,7 @@
     {
       "_id": "user",
       "type": "channel",
-      "common": {
-        "name": "user data"
-      },
+      "common": { "name": "User data" },
       "native": {}
     },
     {
@@ -197,10 +183,10 @@
       "type": "state",
       "common": {
         "role": "state",
-        "name": "Full Name",
+        "name": "Full name",
         "type": "string",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -209,19 +195,17 @@
       "type": "state",
       "common": {
         "role": "state",
-        "name": "User Id on FitBit",
+        "name": "User ID on Fitbit",
         "type": "string",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
     {
       "_id": "tokens",
       "type": "channel",
-      "common": {
-        "name": "Access tokens"
-      },
+      "common": { "name": "Access tokens" },
       "native": {}
     },
     {
@@ -232,7 +216,7 @@
         "name": "Access token",
         "type": "string",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -244,7 +228,7 @@
         "name": "Refresh token",
         "type": "string",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -256,16 +240,14 @@
         "name": "Expire on",
         "type": "string",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
     {
       "_id": "activity",
       "type": "channel",
-      "common": {
-        "name": "Activity records"
-      },
+      "common": { "name": "Activity records" },
       "native": {}
     },
     {
@@ -276,7 +258,7 @@
         "name": "Steps",
         "type": "number",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -284,11 +266,11 @@
       "_id": "activity.HeartRate-ts",
       "type": "state",
       "common": {
-        "role": "value.health.heartrate",
-        "name": "heartrate",
-        "type": "number",
+        "role": "json",
+        "name": "Intraday HR time series",
+        "type": "string",
         "read": true,
-        "write": true
+        "write": false
       },
       "native": {}
     },
@@ -300,7 +282,7 @@
         "name": "Floors",
         "type": "number",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -312,7 +294,7 @@
         "name": "Calories",
         "type": "number",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -321,10 +303,10 @@
       "type": "state",
       "common": {
         "role": "value.health.steps",
-        "name": "Number of daily Activities",
+        "name": "Number of daily activities",
         "type": "number",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -333,11 +315,11 @@
       "type": "state",
       "common": {
         "role": "state",
-        "name": "Active Minutes",
+        "name": "Active minutes",
         "type": "number",
         "unit": "Minutes",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -346,20 +328,31 @@
       "type": "state",
       "common": {
         "role": "value.health.bpm",
-        "name": "Resting Heart Rate",
+        "name": "Resting heart rate",
         "type": "number",
         "unit": "bpm",
         "read": true,
-        "write": false
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "activity.CurrentHeartRate",
+      "type": "state",
+      "common": {
+        "role": "value.health.bpm",
+        "name": "Current Heart Rate",
+        "type": "number",
+        "unit": "bpm",
+        "read": true,
+        "write": true
       },
       "native": {}
     },
     {
       "_id": "body",
       "type": "channel",
-      "common": {
-        "name": "Body Records"
-      },
+      "common": { "name": "Body records" },
       "native": {}
     },
     {
@@ -383,7 +376,7 @@
         "name": "BMI",
         "type": "number",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -403,9 +396,7 @@
     {
       "_id": "food",
       "type": "channel",
-      "common": {
-        "name": "food data"
-      },
+      "common": { "name": "Food data" },
       "native": {}
     },
     {
@@ -413,10 +404,10 @@
       "type": "state",
       "common": {
         "role": "value.health.calories",
-        "name": "Calories Consumed",
+        "name": "Calories consumed",
         "type": "number",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -425,10 +416,10 @@
       "type": "state",
       "common": {
         "role": "state",
-        "name": "Carbs Consumed",
+        "name": "Carbs consumed",
         "type": "number",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -437,10 +428,10 @@
       "type": "state",
       "common": {
         "role": "state",
-        "name": "Fiber Consumed",
+        "name": "Fiber consumed",
         "type": "number",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -449,10 +440,10 @@
       "type": "state",
       "common": {
         "role": "state",
-        "name": "Sodium Consumed",
+        "name": "Sodium consumed",
         "type": "number",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -461,11 +452,11 @@
       "type": "state",
       "common": {
         "role": "value.health.fat",
-        "name": "food.Fat",
+        "name": "Fat consumed",
         "type": "number",
         "unit": "%",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -473,11 +464,11 @@
       "_id": "food.Protein",
       "type": "state",
       "common": {
-        "role": "value.health.calories",
-        "name": "food.Protein",
+        "role": "value.health.protein",
+        "name": "Protein consumed",
         "type": "number",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -485,20 +476,18 @@
       "_id": "food.Water",
       "type": "state",
       "common": {
-        "role": "value.health.calories",
-        "name": "food.Water",
+        "role": "state",
+        "name": "Water consumed",
         "type": "number",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
     {
       "_id": "sleep",
       "type": "channel",
-      "common": {
-        "name": "sleep data"
-      },
+      "common": { "name": "Sleep data" },
       "native": {}
     },
     {
@@ -506,11 +495,11 @@
       "type": "state",
       "common": {
         "role": "state",
-        "name": "Deep Sleep Time",
+        "name": "Deep sleep time",
         "type": "number",
         "unit": "Minutes",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -519,11 +508,11 @@
       "type": "state",
       "common": {
         "role": "state",
-        "name": "Light Sleep Time",
+        "name": "Light sleep time",
         "type": "number",
         "unit": "Minutes",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -532,11 +521,11 @@
       "type": "state",
       "common": {
         "role": "state",
-        "name": "REM Sleep Time",
+        "name": "REM sleep time",
         "type": "number",
         "unit": "Minutes",
         "read": true,
-        "write": false
+        "write": true
       },
       "native": {}
     },
@@ -545,11 +534,310 @@
       "type": "state",
       "common": {
         "role": "state",
-        "name": "Wake Time",
+        "name": "Wake time",
         "type": "number",
         "unit": "Minutes",
         "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.AsleepTotal",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Total minutes asleep (incl. naps)",
+        "type": "number",
+        "unit": "min",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.InBedTotal",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Total minutes in bed (incl. naps)",
+        "type": "number",
+        "unit": "min",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Main.FellAsleepAt",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Main sleep - fell asleep at (ISO)",
+        "type": "string",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Main.FellAsleepAtLocal",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Main sleep - fell asleep at (local de-DE)",
+        "type": "string",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Main.WokeUpAt",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Main sleep - woke up at (ISO)",
+        "type": "string",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Main.WokeUpAtLocal",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Main sleep - woke up at (local de-DE)",
+        "type": "string",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.HRDropAtSleep",
+      "type": "state",
+      "common": {
+        "role": "value.health.bpm",
+        "name": "Heart rate drop at sleep begin",
+        "type": "number",
+        "unit": "bpm",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.HRBeforeSleep",
+      "type": "state",
+      "common": {
+        "role": "value.health.bpm",
+        "name": "Heart rate before falling asleep",
+        "type": "number",
+        "unit": "bpm",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.HRAfterSleep",
+      "type": "state",
+      "common": {
+        "role": "value.health.bpm",
+        "name": "Heart rate after falling asleep",
+        "type": "number",
+        "unit": "bpm",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.History",
+      "type": "channel",
+      "common": { "name": "Sleep History" },
+      "native": {}
+    },
+    {
+      "_id": "sleep.History.JSON",
+      "type": "state",
+      "common": {
+        "name": "History of sleep data (JSON)",
+        "type": "string",
+        "role": "json",
+        "read": true,
         "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.History.LastEntry",
+      "type": "state",
+      "common": {
+        "name": "Last history entry",
+        "type": "string",
+        "role": "json",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Naps.Asleep",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Minutes asleep in naps",
+        "type": "number",
+        "unit": "min",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Naps.InBed",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Minutes in bed during naps",
+        "type": "number",
+        "unit": "min",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Naps.Count",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Number of naps",
+        "type": "number",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Naps.FellAsleepAt",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Nap - fell asleep at (ISO)",
+        "type": "string",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Naps.FellAsleepAtLocal",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Nap - fell asleep at (local de-DE)",
+        "type": "string",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Naps.WokeUpAt",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Nap - woke up at (ISO)",
+        "type": "string",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Naps.WokeUpAtLocal",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Nap - woke up at (local de-DE)",
+        "type": "string",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "sleep.Naps.List",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "List of today naps as JSON",
+        "type": "string",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "devices",
+      "type": "channel",
+      "common": { "name": "FITBIT Devices" },
+      "native": {}
+    },
+    {
+      "_id": "activity.heartratezones.OutOfRange.minutes",
+      "type": "state",
+      "common": {
+        "role": "value.health",
+        "name": "OutOfRange zone minutes",
+        "type": "number",
+        "unit": "min",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "activity.heartratezones.FatBurn.minutes",
+      "type": "state",
+      "common": {
+        "role": "value.health",
+        "name": "FatBurn zone minutes",
+        "type": "number",
+        "unit": "min",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "activity.heartratezones.Cardio.minutes",
+      "type": "state",
+      "common": {
+        "role": "value.health",
+        "name": "Cardio zone minutes",
+        "type": "number",
+        "unit": "min",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "activity.heartratezones.Peak.minutes",
+      "type": "state",
+      "common": {
+        "role": "value.health",
+        "name": "Peak zone minutes",
+        "type": "number",
+        "unit": "min",
+        "read": true,
+        "write": true
       },
       "native": {}
     }
